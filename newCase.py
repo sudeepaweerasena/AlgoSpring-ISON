@@ -18,10 +18,11 @@ class NewCase:
     async def fill_company_information(self):
 
         # Click 'SME' button
-        await self.page.locator('//*[@id="navbarSupportedContent"]/ul/ul[4]').click()
+        await asyncio.sleep(0.5) 
+        await self.page.get_by_role("button", name="SME").click()
 
         # Click 'New Quotation' Button
-        await self.page.locator('//*[@id="Repeater2_Repeater2_3_lbl_User_0"]').click()
+        await self.page.get_by_role("link", name="New Quotation").click()
 
         # Fill in the Company Name from Sheet1
         await self.page.locator("#ContentBoady1_txt_CompanyName").fill(self.get_value(self.df1, "Company Name"))
@@ -125,5 +126,4 @@ class NewCase:
         await self.page.evaluate(f"document.querySelector('{date_input_selector}').dispatchEvent(new Event('change'));")
 
         await asyncio.sleep(4)
-
 

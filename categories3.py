@@ -87,4 +87,4 @@ class Categories3:
         except Exception as e:
             print(f"Unexpected error during download: {e}")
 
-        await asyncio.sleep(10)  # Wait a little for final processing
+        await asyncio.sleep(10)  
