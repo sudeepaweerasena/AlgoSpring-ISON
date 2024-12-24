@@ -3,7 +3,7 @@ import datetime
 import time
 from datetime import datetime  
 import pandas as pd
-
+from convert import nlg_transfer_medical_data
 
 class NewCase:
     def __init__(self, page, df1, df2):
@@ -78,12 +78,16 @@ class NewCase:
         print("New/Renew")
 
         await self.page.locator("#ContentBoady1_btn_submit").click()
+        await asyncio.sleep(1) 
+
+        nlg_transfer_medical_data()
+        await asyncio.sleep(10) 
 
         file_upload_locator = self.page.locator("#ContentBoady1_fileUpload_member")
         try:
             await asyncio.sleep(2)
             await file_upload_locator.wait_for(state="visible", timeout=15000)
-            await file_upload_locator.set_input_files("D:\\AlgoSpring\\python\\ISON\\MemberUpload - IsonSecure and Dubaicare.xlsx")
+            await file_upload_locator.set_input_files("C:\\Users\\sudeepa.w\\Documents\\GitHub\\AlgoSpring-ISON\\MemberUpload.xlsx")
             print("File uploaded successfully")
         except TimeoutError as e:
             print(f"Timeout Error: {e}")

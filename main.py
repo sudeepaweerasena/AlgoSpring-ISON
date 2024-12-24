@@ -32,7 +32,7 @@ async def main():
   
                 login = Login(page)
                 if (await login.perform_login("lokesh.l@gargash", "Lokesh.l@#2g")):
-
+                    
                     new_case = NewCase(page, df1, df2)
                     await new_case.fill_company_information()
 
