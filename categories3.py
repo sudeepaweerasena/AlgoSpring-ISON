@@ -64,7 +64,7 @@ class Categories3:
         await self.page.locator('#ContentBoady1_btn_quote').click()
 
         # Download the Quotation
-        download_path = 'D:\\AlgoSpring\\python\\ISON'
+        download_path = 'C:\\Users\\sudeepa.w\\Documents\\GitHub\\AlgoSpring-ISON'
 
         # Ensure the download directory exists
         if not os.path.exists(download_path):
